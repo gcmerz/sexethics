@@ -9,33 +9,18 @@ app = Flask(__name__)
 
 MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
-DBS_NAME = 'sexethics'
+DBS_NAME = 'rhallcrime'
 COLLECTION_NAME = 'projects'
-FIELDS = {"_id" : False, 
-	"UNITID_P" : True, 
-	"INSTNM" : True, 
-	"BRANCH" : True, 
-	"City" : True, 
-	"State" : True, 
-	"ZIP" : True, 
-	"Sector_desc" : True, 
-	"men_total" : True, 
-	"women_total" : True, 
-	"Total" : True, 
-	"FORCIB13" : True, 
-	"NONFOR13" : True, 
-	"RAPE14" : True, 
-	"FONDL14" : True, 
-	"STATR14" : True, 
-	"RAPE15" : True, 
-	"FONDL15" : True, 
-	"STATR15" : True,}
+FIELDS = {
+	"_id" : 0,
+	"": 0
+}
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/sexethics/projects")
+@app.route("/rhallcrime/projects")
 def sexethics_projects():
     connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
     collection = connection[DBS_NAME][COLLECTION_NAME]
